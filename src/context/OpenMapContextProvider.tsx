@@ -10,14 +10,6 @@ interface Props{
 export const YelpContextProvider = ({children}: Props) => {
     const [search, setSearch] = useState<Business[]>([]);
 
-console.log(children)
-    useEffect(() => {
-
-        // getHotels( ).then((response) => {
-        //     setSearch(response.businesses)
-        // })
-    }, []);
-
     return <YelpContext.Provider value={{ search }}>{children}</YelpContext.Provider>
 }
 
