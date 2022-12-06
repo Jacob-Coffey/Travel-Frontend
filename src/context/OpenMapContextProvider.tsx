@@ -9,6 +9,7 @@ interface Props{
 
 export const YelpContextProvider = ({children}: Props) => {
     const [search, setSearch] = useState<Business[]>([]);
+
 console.log(children)
     useEffect(() => {
 
@@ -19,3 +20,4 @@ console.log(children)
 
     return <YelpContext.Provider value={{ search }}>{children}</YelpContext.Provider>
 }
+

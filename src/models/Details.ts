@@ -61,4 +61,6 @@ export interface SpecialHour {
     start:        string;
     end:          string;
     is_overnight: boolean;
+
 }
+

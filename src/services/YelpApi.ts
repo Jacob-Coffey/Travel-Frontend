@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Business, Businesses } from '../models/Business';
 import { Reviews, Review } from '../models/Reviews';
 import { BusinessInfo } from '../models/Details';
+
  const url = "http://127.0.0.1:5001/gc-practice-e1155/us-central1/api/search/"
 
 export const getHotels = (location: string, price: number[]): Promise<Businesses> => {
@@ -31,6 +32,7 @@ export const getResturants = (location: string,price: number []): Promise<Busine
             categories: "food",
             price: price 
         
+
         }
     }).then((response) => {
         return response.data;
@@ -48,4 +50,6 @@ export const getDetails = (id: string): Promise<BusinessInfo> => {
     return axios.get<BusinessInfo>(`http://127.0.0.1:5001/final-d9541/us-central1/api/reviews/${id}`).then((response) => {
         return response.data;
     })
+
 };
+

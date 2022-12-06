@@ -19,4 +19,6 @@ export interface User {
     profile_url: string;
     image_url:   null | string;
     name:        string;
+
 }
+
