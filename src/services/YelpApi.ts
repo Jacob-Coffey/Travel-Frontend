@@ -11,7 +11,7 @@ export const getHotels = (location: string, price: number[]): Promise<Businesses
         params: {
             location: location,
             categories: "hotels",
-            price: price
+            price: 200
 
         }
     }).then((response) => {

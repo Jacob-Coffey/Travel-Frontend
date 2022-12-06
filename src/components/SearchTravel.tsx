@@ -11,6 +11,12 @@ import axios from "axios";
 
 
 export function SearchTravel(){
+
+  // const options =[
+  //   {value: '', text:'--What are you looking to do?--'},
+  //   {value: 'Restaurants', text: 'Resturants'},
+  //   {value: 'Hotel,', text:'Hotels'}
+  // ]
   const [locationValue, setLocationValue] = useState("");
   const [priceValue, setPriceValue] = useState<number[]>([]);
 
@@ -88,7 +94,16 @@ export function SearchTravel(){
       <div className="searchContainer">
         <form className="searchForm">
             <h1>So Where are you off to?</h1>
-      <input className= "searchInput"  onChange={(e)=> setLocationValue(e.target.value)}/> 
+            
+            {/* <select value={selected} onChange={setActivityValue}>
+            {options.map(option =>(
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            ))} */}
+           
+            {/* </select> */}
+      <input className= "searcLocationhInput"  onChange={(e)=> setLocationValue(e.target.value)}/> 
       <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/> 
       {/* <input className = "locationInput"></input> */}
         
@@ -102,6 +117,7 @@ export function SearchTravel(){
 
 
       </form>
+      {results.map(result => <p>{result.name}</p>)}
       {/* {results.map((result)=> {
        return(
         <div className="SearchList">
