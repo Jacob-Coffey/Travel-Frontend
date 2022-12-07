@@ -87,7 +87,6 @@ export function SearchTravel(){
       {results.map((result) => {
       return(
         <div className="SearchList">
-          <img src={result.img_url} alt={result.name}></img>
           <p>{result.name}</p>
           <Link to={`/details/${result.id}`}>View Details</Link>
           <br />
