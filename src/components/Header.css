@@ -1,0 +1,49 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(192, 193, 196, 0.955) 0px 10px 10px -10px;
+}
+
+
+.home-button, .list-button {
+    background-color: transparent;
+    color: black;
+    border: transparent;
+    cursor: pointer;
+    margin: 20px 15px 12px 15px;
+}
+
+.home-button:hover, .list-button:hover {
+    transform: scale(1.3);
+    box-shadow: rgba(209, 210, 212, 0.955) 0px 7px 29px 0px;
+    border-radius: 2px;
+    border: 0.1px solid rgb(117, 109, 109);
+}
+
+.home-button:active, .list-button:active {
+    transform: scale(1);
+}
+
+.list-button {
+    margin-right: 40px;
+    margin-left: 25px;
+}
+
+.nav-btns {
+    display: flex;
+}
+
+.list-text {
+    font-size: 13px;
+    margin-right: 15px;
+}
+
+.home-text, .list-text {
+    font-size: 13px;
+    /*text-decoration: overline;*/
+}
+
+
+.title {
+    margin-left: 20px;
+}

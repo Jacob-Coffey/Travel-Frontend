@@ -99,7 +99,7 @@ export function SearchTravel(){
     return(
       <div className="searchContainer">
         <form className="searchForm">
-            <h1>So Where are you off to?</h1>
+            <h1>So Where Are You Off To?</h1>
             
             {/* <select value={selected} onChange={setActivityValue}>
             {options.map(option =>(
