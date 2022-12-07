@@ -3,8 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { getHotels } from "../services/YelpApi";
 import { getResturants } from "../services/YelpApi";
 import { Business } from "../models/Business";
-
-
+import { AddListContext } from "../context/AddListContext";
+import { Link } from 'react-router-dom'
 
 
 
@@ -14,8 +14,12 @@ export function SearchTravel(){
 
   const [locationValue, setLocationValue] = useState("");
   const [priceValue, setPriceValue] = useState<number[]>([]);
+  const { lists, addToList, removeFromList } = useContext(AddListContext) //extracting these methods
 
-
+  const check = (id: string) => { //create a method for the add to list button to change to remove from list and vice versa
+    const boolean = lists.some((business) => business.id === id); //the some method checks whether at least one element inside of the array meets a condition. if the business id === to the id, it will return either false or true (teeter totters depending on the conditional statement shown below when function is called)
+    return boolean
+  }
 
     const [activityValue, setActivityValue] = useState("");
 
@@ -64,7 +68,7 @@ export function SearchTravel(){
     return(
       <div className="searchContainer">
         <form className="searchForm">
-            <h1>So Where are you off to?</h1>
+            <h1>So Where Are You Off To?</h1>
 
       <input className= "searcLocationhInput"  onChange={(e)=> setLocationValue(e.target.value)}/> 
       <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/> 
@@ -80,7 +84,21 @@ export function SearchTravel(){
 
 
       </form>
-      {results.map(result => <p>{result.name}</p>)}
+      {results.map((result) => {
+      return(
+        <div className="SearchList">
+          <img src={result.img_url} alt={result.name}></img>
+          <p>{result.name}</p>
+          <Link to={`/details/${result.id}`}>View Details</Link>
+          {check(result.id) ? ( // call the check function and pass the place id (business id) and if it's already inside of our list array, this will become true and it will be removed. If it is not, it means it is false, and it will be added to the list array. This prevents it from adding multiple places into their list.
+              <button onClick={() => removeFromList(result.id)}>Remove From List</button>
+            ) : (
+              <button onClick={() => addToList(result)}>Add To List</button>
+
+          )}
+        </div>
+      ) 
+      })}
  
       </div>  
     );

@@ -1,21 +1,25 @@
-import React, { useContext } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import { signInWithGoogle, signOut } from "./firebaseConfig";
 import { SearchTravel } from './components/SearchTravel';
-import userEvent from '@testing-library/user-event';
-import AuthContext from './context/AuthContext';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { DetailPage } from './components/DetailPage';
+import Header from './components/Header';
+import AddListPage from './components/AddListPage';
 
 
 
 function App() {
-  const { user } = useContext(AuthContext);
+  
   return (
     <div className="App">
-      { user ? <h3>Welcome {user?.displayName} <button onClick={signOut}>Sign Out</button></h3> :
-      <button onClick={signInWithGoogle}>Sign In With Google!</button>
-  }
-     <SearchTravel></SearchTravel>
+      <Router>
+          <Header></Header>
+        <Routes>
+          <Route path='/' element={<SearchTravel/>}/>
+          <Route path='/details/:id' element={<DetailPage/>}/>
+          <Route path='/list' element={<AddListPage/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
