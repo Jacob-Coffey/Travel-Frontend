@@ -90,6 +90,7 @@ export function SearchTravel(){
           <img src={result.img_url} alt={result.name}></img>
           <p>{result.name}</p>
           <Link to={`/details/${result.id}`}>View Details</Link>
+          <br />
           {check(result.id) ? ( // call the check function and pass the place id (business id) and if it's already inside of our list array, this will become true and it will be removed. If it is not, it means it is false, and it will be added to the list array. This prevents it from adding multiple places into their list.
               <button onClick={() => removeFromList(result.id)}>Remove From List</button>
             ) : (

@@ -27,7 +27,7 @@ return (
         <h4>Price: {business?.price}</h4>
         <h4>Hours: </h4>
         <h4>Phone: {business?.display_phone}</h4>
-        <h4>Website: {business?.url}</h4>
+        <h4><a href={business?.url}>Website</a></h4>
     </div>
 )
 }

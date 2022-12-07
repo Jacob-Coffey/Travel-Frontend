@@ -40,10 +40,10 @@ const Header = () => {
 
         <div className="nav-btns">
 
-        <div className="login-nav-btn">
+        <div className="sign-in-nav-btn">
             { user ? <h3>Welcome {user?.displayName} 
-                <button className="logout-button" onClick={signOut}><IoLogOutOutline size={20} /></button></h3> :
-                <button className="login-button" onClick={signInWithGoogle}><FcGoogle size={20} /></button>
+                <button className="sign-out-button" onClick={signOut}><IoLogOutOutline size={20} /></button></h3> :
+                <button className="sign-in-button" onClick={signInWithGoogle}><FcGoogle size={20} /></button>
             }
         </div>
         
