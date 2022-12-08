@@ -12,19 +12,26 @@ import axios from "axios";
 
 export function SearchTravel(){
 
-  // const options =[
-  //   {value: '', text:'--What are you looking to do?--'},
-  //   {value: 'Restaurants', text: 'Resturants'},
-  //   {value: 'Hotel,', text:'Hotels'}
-  // ]
+  const options = [
+    {value: '', text: '--Choose an option--'},
+    {value: 'hotel', text: 'Hotel'},
+    {value: 'restaurant', text: 'Restaurant'},
+  ]
+
+ 
   const [locationValue, setLocationValue] = useState("");
   const [priceValue, setPriceValue] = useState<number[]>([]);
+  //const [selected, setSelected] = useState(options[0].value);
+  const [activityValue, setActivityValue] = useState(options[0].value);
+  const [results, setResults] = useState<Business[]>([])
+
+  const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    console.log(event.target.value);
+    setActivityValue(event.target.value);
+  };
 
 
 
-    const [activityValue, setActivityValue] = useState("");
-
-    const [results, setResults] = useState<Business[]>([])
     
     const convertPrice = (price:string)=>{
       console.log("console log price", price)
@@ -47,7 +54,14 @@ export function SearchTravel(){
           priceValue.includes(4) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 4]) 
       }
 
+      
+
+
+
     } 
+
+    
+  
 
 
      const onSubmit =(e:any)=>{
@@ -66,24 +80,7 @@ export function SearchTravel(){
        }
 
        
-    //    const [locationValue, setLocationValue]= useState("");
-    //    const [locationResults, setLocationResults] = useState<Business[]>([])
-    //    e.preventDefault()
-    // setLocationResults(e.target.value)
-    //   }
-    //  const onSubmit =(e: any)=>{
-    // e.preventDefault()
-    // const fetch = async () =>{
-    // try{
-    // const res =await getResturants(inputValue);
-    // setLocationResults(res.businesses)
-    //       } catch (err){
-     
-    //       }
-       
-    //    }
-    //     fetch()
-    //    }
+
 
 
 
@@ -92,20 +89,24 @@ export function SearchTravel(){
  
     return(
       <div className="searchContainer">
-        <form className="searchForm">
+         <form className="searchForm"> 
             <h1>So Where are you off to?</h1>
+
+            <select value={activityValue} onChange={handleChange}>
+           {options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.text}
+          </option>
+        ))}
+      </select>
+              
+
+        
             
-            {/* <select value={selected} onChange={setActivityValue}>
-            {options.map(option =>(
-              <option key={option.value} value={option.value}>
-                {option.text}
-              </option>
-            ))} */}
-           
-            {/* </select> */}
-      <input className= "searcLocationhInput"  onChange={(e)=> setLocationValue(e.target.value)}/> 
-      <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/> 
-      {/* <input className = "locationInput"></input> */}
+         
+      <input className= "searcLocationhInput"   onChange={(e)=> setLocationValue(e.target.value)}/> 
+      {/* <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/>   */}
+      
         
         <h3>What's In Your Wallet?</h3>
   <input type="checkbox" value= "$" onChange={(e)=> convertPrice(e.target.value)}/> $<br/>
@@ -116,17 +117,9 @@ export function SearchTravel(){
 <button className= "searchButton" onClick={(e)=> onSubmit(e)}>Search</button>
 
 
-      </form>
+      </form> 
       {results.map(result => <p>{result.name}</p>)}
-      {/* {results.map((result)=> {
-       return(
-        <div className="SearchList">
-            {result.name}
-            <li></li>
-
-        </div>
-      ) 
-      })} */}
+       
       
  
       </div>  
