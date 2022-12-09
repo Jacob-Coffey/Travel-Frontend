@@ -14,7 +14,7 @@ export function SearchTravel(){
 
   const options = [
     {value: '', text: '--Choose an option--'},
-    {value: 'hotel', text: 'Hotel'},
+    {value: 'Hotel', text: 'Hotel'},
     {value: 'restaurant', text: 'Restaurant'},
   ]
 
@@ -30,9 +30,6 @@ export function SearchTravel(){
     setActivityValue(event.target.value);
   };
 
-
-  const [locationValue, setLocationValue] = useState("");
-  const [priceValue, setPriceValue] = useState<number[]>([]);
   const { lists, addToList, removeFromList } = useContext(AddListContext) //extracting these methods
 
   const check = (id: string) => { //create a method for the add to list button to change to remove from list and vice versa
@@ -48,7 +45,7 @@ export function SearchTravel(){
       if (price === "$"){
         
           const newArray:number[] = priceValue.filter(e => e !== 1)
-         
+          
           priceValue.includes(1) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 1]) 
       }else if (price === "$$"){
         const newArray:number[] = priceValue.filter(e => e !== 2)
@@ -64,15 +61,7 @@ export function SearchTravel(){
           priceValue.includes(4) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 4]) 
       }
 
-      
-
-
-
     } 
-
-    
-  
-
 
      const onSubmit =(e:any)=>{
       e.preventDefault()
@@ -112,15 +101,6 @@ export function SearchTravel(){
       <input className= "searcLocationhInput"   onChange={(e)=> setLocationValue(e.target.value)}/> 
       {/* <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/>   */}
       
-
-        <form className="searchForm">
-            <h1>So Where Are You Off To?</h1>
-
-      <input className= "searcLocationhInput"  onChange={(e)=> setLocationValue(e.target.value)}/> 
-      <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/> 
-
-
-        
         <h3>What's In Your Wallet?</h3>
   <input type="checkbox" value= "$" onChange={(e)=> convertPrice(e.target.value)}/> $<br/>
   <input type="checkbox" value= "$$" onChange={(e)=> convertPrice(e.target.value)} /> $$<br/>
@@ -132,11 +112,8 @@ export function SearchTravel(){
 
 
       </form> 
-      {results.map(result => <p>{result.name}</p>)}
+ 
        
-      
-
-      </form>
       {results.map((result) => {
       return(
         <div className="SearchList">
