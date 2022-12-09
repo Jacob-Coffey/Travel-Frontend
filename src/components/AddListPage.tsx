@@ -29,9 +29,6 @@ const AddListPage = () => {
               <button onClick={() => (removeFromList(list, list.id), deleteFromFavorites(list))}>Remove</button>
             ) : (
             <h1></h1>
-            /*<button onClick={() => addToList(list)}>
-                Add To List
-            </button>*/
             )}
           </div>
         )) 

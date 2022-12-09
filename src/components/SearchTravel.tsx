@@ -21,7 +21,7 @@ export function SearchTravel(){
  
   const [locationValue, setLocationValue] = useState("");
   const [priceValue, setPriceValue] = useState<number[]>([]);
-
+  
   //const [selected, setSelected] = useState(options[0].value);
   const [activityValue, setActivityValue] = useState(options[0].value);
   const [results, setResults] = useState<Business[]>([])
@@ -30,7 +30,7 @@ export function SearchTravel(){
     console.log(event.target.value);
     setActivityValue(event.target.value);
   };
-
+  
   const { lists, addToList, removeFromList } = useContext(AddListContext) //extracting these methods
 
 
@@ -66,7 +66,12 @@ export function SearchTravel(){
           priceValue.includes(4) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 4]) 
       }
 
+      
+
+
+
     } 
+
 
      const onSubmit =(e:any)=>{
       e.preventDefault()
@@ -98,9 +103,7 @@ export function SearchTravel(){
           </option>
         ))}
       </select>
-              
-
-        
+                
             
          
       <input className= "searcLocationhInput"   onChange={(e)=> setLocationValue(e.target.value)}/> 
@@ -117,7 +120,6 @@ export function SearchTravel(){
 
 
       </form> 
- 
        
       {results.map((result) => {
       return(
@@ -126,6 +128,7 @@ export function SearchTravel(){
           <Link to={`/details/${result.id}`}>View Details</Link>
           <br />
           {check(result.id) ? ( // call the check function and pass the place id (business id) and if it's already inside of our list array, this will become true and it will be removed. If it is not, it means it is false, and it will be added to the list array. This prevents it from adding multiple places into their list.
+          
               <button onClick={() => (removeFromList(result, result.id), deleteFromFavorites(result))}>Remove From List</button>
             ) : (
               <button onClick={() => (addToList(result), postToFavorites(result))}>Add To List</button>

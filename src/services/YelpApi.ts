@@ -40,12 +40,12 @@ export const getResturants = (location: string,price: number []): Promise<Busine
 };
 
 
-export const getReviews = (id: string): Promise<Reviews> => {
-    return axios.get<Reviews>(`http://127.0.0.1:5001/final-d9541/us-central1/api/reviews/${id}`).then((response) => {
-        return response.data;
-    })
+export const getReviews = (id: string) => {
+    return axios.get<Reviews>(`http://127.0.0.1:5001/final-d9541/us-central1/api/reviews/${id}`)
 };
 
 export const getDetails = (id: string) => {
     return axios.get<BusinessInfo>(`http://127.0.0.1:5001/final-d9541/us-central1/api/details/${id}`)
 };
+
+
