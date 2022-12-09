@@ -1,9 +1,11 @@
 
+
 export interface Businesses {
     businesses: Business[],
 }
 
 export interface Business {
+    _id?: string;
     rating: number;
     price: string;
     phone: string;

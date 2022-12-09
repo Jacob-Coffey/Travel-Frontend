@@ -30,7 +30,7 @@ export default function AddListContextProvider ({ children }: Props) {
     };
 
     return (
-        <AddListContext.Provider value={{ lists, addToList, removeFromList}}> 
+        <AddListContext.Provider value={{ lists, addToList, removeFromList }}> 
             {children}
         </AddListContext.Provider>
     );

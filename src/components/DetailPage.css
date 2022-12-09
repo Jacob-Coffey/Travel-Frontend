@@ -1,5 +1,9 @@
 img {
-    width: 300px;
+    height: 300px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
 }
 
 .detail-card {
@@ -7,4 +11,16 @@ img {
     margin: 30px 400px 0px 400px;
     border: solid #ddd .10em;
     box-shadow: 5px 5px 5px #999;
+}
+
+.review-text {
+    text-align: left;
+}
+
+.business-info{
+    display: flex;
+}
+
+.text-info {
+    padding-left: 100px;
 }

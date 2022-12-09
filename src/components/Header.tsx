@@ -42,8 +42,8 @@ const Header = () => {
 
         <div className="sign-in-nav-btn">
             { user ? <h3>Welcome {user?.displayName} 
-                <button className="sign-out-button" onClick={signOut}><IoLogOutOutline size={22} /></button></h3> :
-                <button className="sign-in-button" onClick={signInWithGoogle}><FcGoogle size={20} /></button>
+                <button className="sign-out-button" onClick={signOut}>Sign Out<IoLogOutOutline size={22} /></button></h3> :
+                <button className="sign-in-button" onClick={signInWithGoogle}>Sign In With Google<FcGoogle size={20} /></button>
             }
         </div>
         
