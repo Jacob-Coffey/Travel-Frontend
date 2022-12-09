@@ -1,0 +1,10 @@
+img {
+    width: 300px;
+}
+
+.detail-card {
+    background: #ffffff;
+    margin: 30px 400px 0px 400px;
+    border: solid #ddd .10em;
+    box-shadow: 5px 5px 5px #999;
+}
