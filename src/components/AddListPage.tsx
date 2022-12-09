@@ -1,10 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AddListContext } from '../context/AddListContext'
+import { Business } from '../models/Business'
+import { deleteFromFavorites, getFavoritesList } from '../services/DbApi'
+
 
 const AddListPage = () => {
 
-  const { lists, removeFromList } = useContext(AddListContext)
+  const { lists, removeFromList, count } = useContext(AddListContext)
+
+  let dollarTotal = count * 10
+
   const check = (id: string) => {
     const boolean = lists.some((business) => business.id === id);
     return boolean;
@@ -12,6 +18,7 @@ const AddListPage = () => {
 
   return (
     <div className="AddListPage">
+      <h2>Total needed for trip: {dollarTotal} </h2>
             {lists.length > 0 ? (lists.map((list, i) => (
           <div key={i}>
             <div className="img-title">
@@ -19,7 +26,7 @@ const AddListPage = () => {
               <Link to={`/details/${list.id}`}>View Details</Link>
               </div>
               {check(list.id) ? (
-              <button onClick={() => removeFromList(list.id)}>Remove</button>
+              <button onClick={() => (removeFromList(list, list.id), deleteFromFavorites(list))}>Remove</button>
             ) : (
             <h1></h1>
             /*<button onClick={() => addToList(list)}>
