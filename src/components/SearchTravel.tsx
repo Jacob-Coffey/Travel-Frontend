@@ -12,6 +12,25 @@ import { Link } from 'react-router-dom'
 export function SearchTravel(){
 
 
+  const options = [
+    {value: '', text: '--Choose an option--'},
+    {value: 'hotel', text: 'Hotel'},
+    {value: 'restaurant', text: 'Restaurant'},
+  ]
+
+ 
+  const [locationValue, setLocationValue] = useState("");
+  const [priceValue, setPriceValue] = useState<number[]>([]);
+  //const [selected, setSelected] = useState(options[0].value);
+  const [activityValue, setActivityValue] = useState(options[0].value);
+  const [results, setResults] = useState<Business[]>([])
+
+  const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    console.log(event.target.value);
+    setActivityValue(event.target.value);
+  };
+
+
   const [locationValue, setLocationValue] = useState("");
   const [priceValue, setPriceValue] = useState<number[]>([]);
   const { lists, addToList, removeFromList } = useContext(AddListContext) //extracting these methods
@@ -21,9 +40,8 @@ export function SearchTravel(){
     return boolean
   }
 
-    const [activityValue, setActivityValue] = useState("");
 
-    const [results, setResults] = useState<Business[]>([])
+
     
     const convertPrice = (price:string)=>{
       console.log("console log price", price)
@@ -46,7 +64,14 @@ export function SearchTravel(){
           priceValue.includes(4) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 4]) 
       }
 
+      
+
+
+
     } 
+
+    
+  
 
 
      const onSubmit =(e:any)=>{
@@ -64,14 +89,36 @@ export function SearchTravel(){
         fetch()
        }
 
+     
 
     return(
       <div className="searchContainer">
+
+         <form className="searchForm"> 
+            <h1>So Where are you off to?</h1>
+
+            <select value={activityValue} onChange={handleChange}>
+           {options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.text}
+          </option>
+        ))}
+      </select>
+              
+
+        
+            
+         
+      <input className= "searcLocationhInput"   onChange={(e)=> setLocationValue(e.target.value)}/> 
+      {/* <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/>   */}
+      
+
         <form className="searchForm">
             <h1>So Where Are You Off To?</h1>
 
       <input className= "searcLocationhInput"  onChange={(e)=> setLocationValue(e.target.value)}/> 
       <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/> 
+
 
         
         <h3>What's In Your Wallet?</h3>
@@ -82,6 +129,12 @@ export function SearchTravel(){
 
 <button className= "searchButton" onClick={(e)=> onSubmit(e)}>Search</button>
 
+
+
+      </form> 
+      {results.map(result => <p>{result.name}</p>)}
+       
+      
 
       </form>
       {results.map((result) => {
@@ -99,6 +152,7 @@ export function SearchTravel(){
         </div>
       ) 
       })}
+
  
       </div>  
     );
