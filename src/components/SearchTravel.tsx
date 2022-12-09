@@ -5,7 +5,7 @@ import { getResturants } from "../services/YelpApi";
 import { Business } from "../models/Business";
 import { AddListContext } from "../context/AddListContext";
 import { Link } from 'react-router-dom'
-import { deleteFromFavorites, postToFavorites } from "../services/DBApi";
+import { deleteFromFavorites, postToFavorites } from "../services/DbApi";
 
 
 
