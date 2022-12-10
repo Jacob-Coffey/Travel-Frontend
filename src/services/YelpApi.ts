@@ -39,6 +39,42 @@ export const getResturants = (location: string,price: number []): Promise<Busine
     })
 };
 
+export const getNightlife = (location: string, price: number[]): Promise<Businesses> => {
+    return axios.get<Businesses>((url), {
+        params: {
+            location: location,
+            categories: "nightlife",
+            price: price
+        }
+    }).then((response) => {
+        return response.data;
+    })
+};
+
+export const getBeautySpas = (location: string, price: number[]): Promise<Businesses> => {
+    return axios.get<Businesses>((url), {
+        params: {
+            location: location,
+            categories: "beautysvc",
+            price: price
+        }
+    }).then((response) => {
+        return response.data;
+    })
+};
+
+export const getShopping = (location: string, price: number[]): Promise<Businesses> => {
+    return axios.get<Businesses>((url), {
+        params: {
+            location: location,
+            categories: "shopping",
+            price: price
+        }
+    }).then((response) => {
+        return response.data;
+    })
+}
+
 
 export const getReviews = (id: string) => {
     return axios.get<Reviews>(`http://127.0.0.1:5001/final-d9541/us-central1/api/reviews/${id}`)

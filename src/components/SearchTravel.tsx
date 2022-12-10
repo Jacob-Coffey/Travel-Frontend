@@ -1,7 +1,6 @@
 import React from "react";
 import { useContext, useEffect, useState } from "react";
-import { getHotels } from "../services/YelpApi";
-import { getResturants } from "../services/YelpApi";
+import { getHotels, getNightlife, getResturants, getBeautySpas, getShopping } from "../services/YelpApi";
 import { Business } from "../models/Business";
 import { AddListContext } from "../context/AddListContext";
 import { Link } from 'react-router-dom'
@@ -14,8 +13,12 @@ export function SearchTravel(){
 
   const options = [
     {value: '', text: '--Choose an option--'},
-    {value: 'Hotel', text: 'Hotel'},
-    {value: 'restaurant', text: 'Restaurant'},
+    {value: 'Hotel', text: 'Hotels'},
+    {value: 'Restaurant', text: 'Restaurants'},
+    {value: 'Nightlife', text: 'Night Life'},
+    {value: 'Beauty & Spas', text: 'Beauty & Spas'},
+    {value: 'Shopping', text: 'Places to Shop'},
+
   ]
 
  
@@ -77,11 +80,44 @@ export function SearchTravel(){
       e.preventDefault()
     console.log(locationValue, priceValue, activityValue);
     const fetch = async () =>{ 
-    try{ 
-      const res = activityValue === "Hotel" ? await getHotels(locationValue, priceValue): await getResturants(locationValue, priceValue);
-    setResults(res.businesses)
-          } catch (err){
-     
+          if(activityValue === "Hotel"){
+            try{
+            const res = await getHotels(locationValue, priceValue);
+            setResults(res.businesses)
+            }
+            catch(err){}
+          }
+          
+          if(activityValue === "Restaurant"){
+            try{
+            const res = await getResturants(locationValue, priceValue);
+            setResults(res.businesses)
+            }
+            catch(err){}
+          }
+          
+          if(activityValue === "Nightlife"){
+            try{
+              const res = await getNightlife(locationValue, priceValue);
+              setResults(res.businesses)
+            }
+            catch(err){}
+          }
+
+          if(activityValue === "Beauty & Spas"){
+            try{
+              const res = await getBeautySpas(locationValue, priceValue);
+              setResults(res.businesses)
+            }
+            catch(err){}
+          }
+
+          if(activityValue === "Shopping"){
+            try{
+              const res = await getShopping(locationValue, priceValue);
+              setResults(res.businesses)
+            }
+            catch(err){}
           }
        
        }

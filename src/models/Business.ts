@@ -18,4 +18,5 @@ export interface Business {
     img_url: string;
     location: string;
     distance: number;
+    categories: string;
 }

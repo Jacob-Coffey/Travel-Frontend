@@ -10,7 +10,9 @@ interface Props {
 
 export default function AddListContextProvider ({ children }: Props) {
     const [lists, setLists] = useState<Business[]>([]);
-    const [count, setCount] = useState<number>(0)
+    const [count, setCount] = useState<number>(0);
+
+ 
 
     const addToList = (newAdd: Business): void => { //whole new business that you want to add will be passed 
         
@@ -35,7 +37,7 @@ export default function AddListContextProvider ({ children }: Props) {
     };
 
     return (
-        <AddListContext.Provider value={{ lists, addToList, removeFromList, count}}> 
+        <AddListContext.Provider value={{ lists, addToList, removeFromList, count }}> 
             {children}
         </AddListContext.Provider>
     );

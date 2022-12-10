@@ -9,6 +9,7 @@ const AddListPage = () => {
 
   const { lists, removeFromList, count } = useContext(AddListContext)
 
+  
   let dollarTotal = count * 10
 
   const check = (id: string) => {
@@ -24,6 +25,7 @@ const AddListPage = () => {
             <div className="img-title">
               <p className="movie-title">{list.name}</p>
               <Link to={`/details/${list.id}`}>View Details</Link>
+              {list.categories === "food" ?? <p>Estimated cost: {list.price.length * 10}</p>}
               </div>
               {check(list.id) ? (
               <button onClick={() => (removeFromList(list, list.id), deleteFromFavorites(list))}>Remove</button>
