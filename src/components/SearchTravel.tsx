@@ -14,7 +14,7 @@ export function SearchTravel(){
 
   const options = [
     {value: '', text: '--Choose an option--'},
-    {value: 'hotel', text: 'Hotel'},
+    {value: 'Hotel', text: 'Hotel'},
     {value: 'restaurant', text: 'Restaurant'},
   ]
 
@@ -24,6 +24,7 @@ export function SearchTravel(){
   //const [selected, setSelected] = useState(options[0].value);
   const [activityValue, setActivityValue] = useState(options[0].value);
   const [results, setResults] = useState<Business[]>([])
+  
 
   const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
     console.log(event.target.value);
@@ -38,6 +39,7 @@ export function SearchTravel(){
       if (price === "$"){
         
           const newArray:number[] = priceValue.filter(e => e !== 1)
+          //newArray.push(1);
          
           priceValue.includes(1) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 1]) 
       }else if (price === "$$"){
@@ -53,6 +55,12 @@ export function SearchTravel(){
          
           priceValue.includes(4) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 4]) 
       }
+      //This function is sending it as [$, $$ $$$, $$$$] > [1,2,3,4] but its supposed to be 1,2,3,4... we believe so l0l --flatten an array? How to pull numbers 
+      // from the array? 
+      // When we send it in an array it looks like price=[]=2
+//price=2
+
+
 
       
 
@@ -67,6 +75,8 @@ export function SearchTravel(){
      const onSubmit =(e:any)=>{
       e.preventDefault()
     console.log(locationValue, priceValue, activityValue);
+    console.log('Price Value', priceValue);
+    //This is where we need to send it without the brackets. Possibly map through the array and pull out just the numbers
     const fetch = async () =>{ 
     try{ 
       const res = activityValue === "Hotel" ? await getHotels(locationValue, priceValue): await getResturants(locationValue, priceValue);
@@ -105,7 +115,7 @@ export function SearchTravel(){
             
          
       <input className= "searcLocationhInput"   onChange={(e)=> setLocationValue(e.target.value)}/> 
-      {/* <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/>   */}
+      {/* <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/>    */}
       
         
         <h3>What's In Your Wallet?</h3>

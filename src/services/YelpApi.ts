@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Business, Businesses } from '../models/Business';
 import { Reviews, Review } from '../models/Reviews';
 import { BusinessInfo } from '../models/Details';
- const url = "http://127.0.0.1:5001/gc-practice-e1155/us-central1/api/search/"
+ const url =  "http://127.0.0.1:5001/gc-practice-e1155/us-central1/api/search/"
 
 export const getHotels = (location: string, price: number[]): Promise<Businesses> => {
    console.log(location);
@@ -11,7 +11,11 @@ export const getHotels = (location: string, price: number[]): Promise<Businesses
         params: {
             location: location,
             categories: "hotels",
-            price: 200
+            price: price,
+            //We're sending [2] when we need to be sending 2
+            sort_by: 'best_match',
+             limit: '20'
+        
 
         }
     }).then((response) => {
