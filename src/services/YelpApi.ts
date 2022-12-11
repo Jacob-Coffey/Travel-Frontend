@@ -4,7 +4,7 @@ import { Reviews, Review } from '../models/Reviews';
 import { BusinessInfo } from '../models/Details';
  const url =  "http://127.0.0.1:5001/gc-practice-e1155/us-central1/api/search/"
 
-export const getHotels = (location: string, price: number[]): Promise<Businesses> => {
+export const getHotels = (location: string, price: number): Promise<Businesses> => {
    console.log(location);
    console.log(price);
     return axios.get<Businesses>((url), {
@@ -13,8 +13,7 @@ export const getHotels = (location: string, price: number[]): Promise<Businesses
             categories: "hotels",
             price: price,
             //We're sending [2] when we need to be sending 2
-            sort_by: 'best_match',
-             limit: '20'
+            
         
 
         }
@@ -25,7 +24,7 @@ export const getHotels = (location: string, price: number[]): Promise<Businesses
     })
 };
 
-export const getResturants = (location: string,price: number []): Promise<Businesses> => {
+export const getResturants = (location: string,price: number ): Promise<Businesses> => {
     console.log(location);
    console.log(price);
 
