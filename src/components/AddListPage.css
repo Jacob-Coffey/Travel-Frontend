@@ -1,3 +1,8 @@
+.main-photo-container {
+    display: none;
+  }
+  
+
 .AddList {
     border: transparent;
     border-radius: 7px;
