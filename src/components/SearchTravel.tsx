@@ -14,7 +14,7 @@ export function SearchTravel(){
 
   const options = [
     {value: '', text: '--Choose an option--'},
-    {value: 'Hotel', text: 'Hotel'},
+    {value: 'hotel', text: 'Hotel'},
     {value: 'restaurant', text: 'Restaurant'},
   ]
 
