@@ -5,7 +5,7 @@ import { BusinessInfo } from '../models/Details';
 
  const url = "http://127.0.0.1:5001/final-d9541/us-central1/api/search"
 
-export const getHotels = (location: string, price: number[]): Promise<Businesses> => {
+export const getHotels = (location: string, price: number): Promise<Businesses> => {
    console.log(location);
    console.log(price);
     return axios.get<Businesses>((url), {
@@ -22,7 +22,7 @@ export const getHotels = (location: string, price: number[]): Promise<Businesses
     })
 };
 
-export const getResturants = (location: string,price: number []): Promise<Businesses> => {
+export const getResturants = (location: string,price: number): Promise<Businesses> => {
     console.log(location);
    console.log(price);
 
@@ -39,7 +39,7 @@ export const getResturants = (location: string,price: number []): Promise<Busine
     })
 };
 
-export const getNightlife = (location: string, price: number[]): Promise<Businesses> => {
+export const getNightlife = (location: string, price: number): Promise<Businesses> => {
     return axios.get<Businesses>((url), {
         params: {
             location: location,
@@ -51,7 +51,7 @@ export const getNightlife = (location: string, price: number[]): Promise<Busines
     })
 };
 
-export const getBeautySpas = (location: string, price: number[]): Promise<Businesses> => {
+export const getBeautySpas = (location: string, price: number): Promise<Businesses> => {
     return axios.get<Businesses>((url), {
         params: {
             location: location,
@@ -63,7 +63,7 @@ export const getBeautySpas = (location: string, price: number[]): Promise<Busine
     })
 };
 
-export const getShopping = (location: string, price: number[]): Promise<Businesses> => {
+export const getShopping = (location: string, price: number): Promise<Businesses> => {
     return axios.get<Businesses>((url), {
         params: {
             location: location,

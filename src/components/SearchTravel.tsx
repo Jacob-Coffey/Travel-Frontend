@@ -23,7 +23,7 @@ export function SearchTravel(){
 
  
   const [locationValue, setLocationValue] = useState("");
-  const [priceValue, setPriceValue] = useState<number[]>([]);
+  const [priceValue, setPriceValue] = useState<number>(0);
   
   //const [selected, setSelected] = useState(options[0].value);
   const [activityValue, setActivityValue] = useState(options[0].value);
@@ -42,38 +42,6 @@ export function SearchTravel(){
     return boolean
   }
 
-
-
-    
-    const convertPrice = (price:string)=>{
-      console.log("console log price", price)
-      if (price === "$"){
-        
-          const newArray:number[] = priceValue.filter(e => e !== 1)
-          
-          priceValue.includes(1) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 1]) 
-      }
-      if (price === "$$"){
-        const newArray:number[] = priceValue.filter(e => e !== 2)
-         
-          priceValue.includes(2) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 2]) 
-      }
-      if (price === "$$$"){
-        const newArray:number[] = priceValue.filter(e => e !== 3)
-         
-          priceValue.includes(3) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 3]) 
-      }
-      if (price === "$$$$"){
-        const newArray:number[] = priceValue.filter(e => e !== 4)
-         
-          priceValue.includes(4) ? setPriceValue(newArray): setPriceValue(priceValue=>[...priceValue, 4]) 
-      }
-
-      
-
-
-
-    } 
 
 
      const onSubmit =(e:any)=>{
@@ -146,10 +114,10 @@ export function SearchTravel(){
       {/* <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/>   */}
       
         <h3>What's In Your Wallet?</h3>
-  <input type="checkbox" value= "$" onChange={(e)=> convertPrice(e.target.value)}/> $<br/>
-  <input type="checkbox" value= "$$" onChange={(e)=> convertPrice(e.target.value)} /> $$<br/>
-  <input type="checkbox"  value= "$$$"onChange={(e) => convertPrice(e.target.value)}/> $$$<br/>
-  <input type="checkbox"  value= "$$$$"onChange={(e)=> convertPrice(e.target.value)}/> $$$$<br/>
+  <input type="checkbox" value= "1" onChange={(e)=> setPriceValue(Number(e.target.value))}/> $<br/>
+  <input type="checkbox" value= "2" onChange={(e)=> setPriceValue(Number(e.target.value))} /> $$<br/>
+  <input type="checkbox"  value= "3"onChange={(e) => setPriceValue(Number(e.target.value))}/> $$$<br/>
+  <input type="checkbox"  value= "4"onChange={(e)=> setPriceValue(Number(e.target.value))}/> $$$$<br/>
 
 <button className= "searchButton" onClick={(e)=> onSubmit(e)}>Search</button>
 
