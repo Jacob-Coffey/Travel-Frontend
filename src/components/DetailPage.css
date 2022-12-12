@@ -1,26 +1,89 @@
-img {
-    height: 300px;
-    width: auto;
+.detail-photo {
+    height: 400px;
+    width: 100%;
+    border-top: white solid 5px;
+    border-right: white solid 5px;
+}
+
+.photos {
     display: flex;
-    flex-direction: column;
-    padding-left: 100px;
+    overflow: hidden;
 }
 
 .detail-card {
-    background: #ffffff;
-    margin: 30px 400px 0px 400px;
-    border: solid #ddd .10em;
-    box-shadow: 5px 5px 5px #999;
+    text-align: center;
+    color: rgb(5, 80, 93);
 }
 
 .review-text {
     text-align: left;
 }
 
-.business-info{
-    display: flex;
+.detail-name {
+    color:rgb(5, 80, 93);
+    z-index: 1;
+    font-size: 60px;
+    margin-top: 0px;
+    border-top: white solid 5px;
+    text-decoration: overline;
 }
 
 .text-info {
-    padding-left: 100px;
+    background-color:rgb(5, 80, 93);
+    color: white;
+    border-bottom: white solid 5px;
+    border-top: white solid 5px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.review-container {
+    border:white solid 1px;
+    width: 800px;
+    background-color: rgb(5, 80, 93);
+    margin: 10px 0px 10px 550px;
+}
+
+.review-title {
+    text-decoration: overline;
+    color: white;
+}
+
+.reviews {
+    display: flex;
+    border:white solid 1px;
+    margin: 20px;
+    background: rgb(5, 80, 93);
+    color: white;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+.star-review {
+    margin-top: 30px;
+    display: flex;
+}
+
+.review-rating {
+    margin-left: 0px;
+}
+
+.star {
+    margin-right: 3px;
+}
+
+.username {
+    padding-right: 50px;
+    color: #ffae42;
+}
+
+a {
+    color: #ece6e1;
+}
+
+a:hover {
+    color: #ffae42;
+}
+
+a:active {
+    color: #ffae42;
 }
