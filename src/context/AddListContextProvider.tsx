@@ -10,7 +10,9 @@ interface Props {
 
 export default function AddListContextProvider ({ children }: Props) {
     const [lists, setLists] = useState<Business[]>([]);
-    const [count, setCount] = useState<number>(0)
+    const [count, setCount] = useState<number>(0);
+
+ 
 
     const addToList = (newAdd: Business): void => { //whole new business that you want to add will be passed 
         
@@ -20,8 +22,22 @@ export default function AddListContextProvider ({ children }: Props) {
         const newList = oldList.concat(newAdd); //the new list will add both the old list and the new add (concat combines two or more arrays)
 
         setLists(newList); 
-
+        if(newAdd.categories === "hotels"){
+            setCount((10 * newAdd.price.length) + count) 
+        }
+        if(newAdd.categories === "food"){
         setCount(count + newAdd.price.length)
+        }
+        if(newAdd.categories === "nightlife"){
+            setCount((2 * newAdd.price.length) + count)
+        }
+        if(newAdd.categories === "beautysvc"){
+            setCount((5 * newAdd.price.length) + count)
+        }
+        if(newAdd.categories === "shopping"){
+            setCount((5 * newAdd.price.length) + count)
+        }
+
     };
 
     const removeFromList = (removedPlace: Business, id: string): void => {
@@ -35,7 +51,7 @@ export default function AddListContextProvider ({ children }: Props) {
     };
 
     return (
-        <AddListContext.Provider value={{ lists, addToList, removeFromList, count}}> 
+        <AddListContext.Provider value={{ lists, addToList, removeFromList, count }}> 
             {children}
         </AddListContext.Provider>
     );

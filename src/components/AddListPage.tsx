@@ -12,6 +12,7 @@ const AddListPage = () => {
 
   const { lists, removeFromList, count } = useContext(AddListContext)
 
+  
   let dollarTotal = count * 10
 
   const check = (id: string) => {

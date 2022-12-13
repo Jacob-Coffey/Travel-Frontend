@@ -6,6 +6,7 @@ interface AddListContextModel {
     addToList: (newAdd: Business) => void;
     removeFromList: (removedPlace: Business, id: string) => void;
     count: number;
+   
 };
 
 const defaultValue: AddListContextModel = {
@@ -13,6 +14,7 @@ const defaultValue: AddListContextModel = {
     addToList: () => {},
     removeFromList: () => {},
     count: 0,
+  
 };
 
 export const AddListContext = createContext(defaultValue);
