@@ -1,0 +1,150 @@
+.main-photo-container {
+    display: flex;
+}
+
+.searcLocationhInput, .category-box {
+    padding: 15px;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: rgba(192, 193, 196, 0.955) 0px 10px 10px -10px;
+    border: rgb(203, 200, 200) solid 0.5px;
+    font-family: 'Unbounded', cursive;
+    font-weight: bold;
+    color:rgb(5, 80, 93);
+}
+
+.searchContainer {
+    border-top: white solid 10px;
+}
+
+.searcLocationhInput {
+    border-left: none;
+    padding: 16px;
+}
+
+input[type=checkbox] {
+    accent-color: #ffae42;
+}
+
+.searchForm {
+    color:rgb(5, 80, 93);
+}
+
+
+.check-box-container {
+    color:#ffae42;
+}
+
+.SearchList {
+    border: transparent;
+    border-radius: 7px;
+    width: 330px;
+    height: 375px;
+    margin: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    background-color:#ece6e1;
+    font-family: 'Manrope', sans-serif;
+}
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin-left: 205px;
+    color: rgb(5, 80, 93);
+}
+
+form {
+    text-align: center;
+}
+
+.add-button, .remove-button, .view-details {
+    background-color: transparent;
+    color: rgb(5, 80, 93);
+    border: white solid 1px;
+    border-radius: 5px;
+    padding: 6px 20px 6px 15px;
+    font-weight: bold;
+    font-family: 'Unbounded', cursive;
+    font-size: 12px;
+}
+
+.add-button:hover, .remove-button:hover {
+    cursor: pointer;
+    background-color: #ffae42;
+    border: transparent;
+}
+
+.remove-button:active {
+    background-color:#ffae42;
+}
+
+.result-image {
+    width: 330px;
+    height: 225px;
+    padding: 0;
+    margin: 0;
+}
+
+.searchButton {
+    border-radius: 5px;
+    margin-top: 15px;
+    border: rgb(5, 80, 93) solid 0.5px;
+    color:rgb(5, 80, 93);
+    background-color:transparent;
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-family: 'Unbounded', cursive;
+    font-weight: bold;
+    box-shadow: rgba(192, 193, 196, 0.955) 0px 10px 10px -10px;
+}
+
+.searchButton:hover {
+    color: #ffae42;
+    border: #ffae42 solid 1px;
+    background-color: white;
+}
+
+p {
+    margin: 10px;
+}
+
+
+.view-details:hover {
+    cursor: pointer;
+    background-color: rgb(5, 80, 93);
+    color: #ffae42;
+    border: transparent;
+}
+
+.details-add-button {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 15px 5px 15px;
+}
+
+.rating-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 25px 0px 20px;
+    font-size: 15px;
+    padding-top: 0px;
+}
+
+.result-name {
+    text-align: center;
+    font-family: 'Manrope', sans-serif;
+    text-decoration: overline;
+    font-size: 18px;
+    margin-bottom: 0px;
+    padding-top: 7px;
+    font-weight: bold;
+}
+
+.result-price {
+    font-weight:bold
+}

@@ -1,4 +1,39 @@
+
+
 body{
   width: 100%;
-  text-align: center;
+  background-color: #ece6e1;
+}
+
+.main-photo-container {
+  display: flex;
+}
+
+.main-photo {
+  height: 75px;
+  width: 102px;
+  border-right: 10px solid #ffffff;
+}
+
+.main-photo-rest {
+  border: none;
+}
+
+
+@media screen and (min-width: 768px ) {
+  
+  .main-photo {
+    height: 250px;
+    width: 378px;
+  }
+
+} 
+
+@media screen and (min-width: 1600px) {
+
+  .main-photo {
+    height: 250px;
+    width: 500px;
+  }
+
 }

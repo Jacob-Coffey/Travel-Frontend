@@ -2,6 +2,8 @@
     display: flex;
     justify-content: space-between;
     box-shadow: rgba(192, 193, 196, 0.955) 0px 10px 10px -10px;
+    background: rgb(5, 80, 93);
+    height: 80px;
 }
 
 
@@ -10,47 +12,93 @@
     color: black;
     border: transparent;
     cursor: pointer;
-    margin: 20px 15px 12px 15px;
 }
 
-.search-button:hover, .list-button:hover, .sign-in-button:hover, .sign-out-button:hover {
-    transform: scale(1.3);
-    box-shadow: rgba(209, 210, 212, 0.955) 0px 7px 29px 0px;
+.search-button:hover, .list-button:hover, .sign-out-button:hover {
+    translate: scale(1.3);
     border-radius: 2px;
-    border: 0.1px solid rgb(117, 109, 109);
+    border: #ffae42 solid 1px;
 }
 
-.search-button:active, .list-button:active, .sign-in-button:active, .sign-out-button:active {
+.search-button:active, .list-button:active, .sign-in-button:active {
     transform: scale(1);
 }
 
-.sign-in-nav-btn{
-    margin-top: -20px;
+.sign-in {
+    display: flex;
+    margin-top: 18px;
+    margin-right: 50px;
 }
 
 .sign-in-button {
-    margin-top: 40px;
+    padding: 0;
+    margin-right: 10px;
+}
+
+.sign-in-button:hover {
+    padding: 8px;
+    border-radius: 2px;
+    border: #ffae42 solid 1px;
+    margin: 0;
+}
+
+.sign-in-text {
+    color: white;
+    font-size: 13px;
 }
 
 .list-button {
     margin-right: 40px;
     margin-left: 25px;
+    margin-top: 23px;
+}
+
+.list-text {
+    margin-left: 22px;
+}
+
+.search-button {
+    margin-top: 25px;
+}
+
+.search-text, .list-text, .sign-out-text {
+    font-size: 10px;
+    color: white;
+    margin-top: 10px;
+}
+
+.bleh {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-out-text {
+    font-size: 10px;
+    color: white;
+    margin-right: 27px;
+}
+
+.sign-out-button {
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
+.welcome-text {
+    margin-top: 27px;
+    margin-right: 15px;
+    color: white;
+}
+
+.welcome-container {
+    display: flex;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    padding-left: 0px;
 }
 
 .nav-btns {
     display: flex;
-}
-
-.list-text {
-    font-size: 13px;
-    margin-right: 15px;
-}
-
-.search-text, .list-text {
-    font-size: 13px;
-}
-
-
-.title {
-    margin-left: 20px;
 }

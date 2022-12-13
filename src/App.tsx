@@ -5,17 +5,26 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import { DetailPage } from './components/DetailPage';
 import Header from './components/Header';
 import AddListPage from './components/AddListPage';
-
+import hotelOneImg from './hotel-1.jpg'
+import hotelTwoImg from './hotel-2.jpg'
+import restaurantOneImg from './restaurant-1.jpg'
+import restaurantTwoImg from './restaurant-2.jpg'
 
 
 function App() {
   
   return (
     <div className="App">
+      <div className="main-photo-container">
+          <img className="main-photo" src={hotelOneImg} alt="hotel"></img>
+          <img className="main-photo" src={restaurantOneImg} alt="hotel"></img>
+          <img className="main-photo" src={hotelTwoImg} alt="restaurant"></img>
+          <img className="main-photo main-photo-rest" src={restaurantTwoImg} alt="restaurant"></img>
+      </div>
       <Router>
           <Header></Header>
         <Routes>
-          <Route path='/' element={<SearchTravel/>}/>
+          <Route path='/' element={<SearchTravel/>} />
           <Route path='/details/:id' element={<DetailPage/>}/>
           <Route path='/addlist' element={<AddListPage/>}/>
         </Routes>

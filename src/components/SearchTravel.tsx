@@ -5,6 +5,11 @@ import { Business } from "../models/Business";
 import { AddListContext } from "../context/AddListContext";
 import { Link } from 'react-router-dom'
 import { deleteFromFavorites, postToFavorites } from "../services/DbApi";
+import "./SearchTravel.css"
+import { RiAddFill } from 'react-icons/ri'
+import { TiMinus } from 'react-icons/ti'
+import { GiRoundStar } from 'react-icons/gi'
+import { IoSearchOutline } from 'react-icons/io5'
 
 
 
@@ -98,9 +103,9 @@ export function SearchTravel(){
       <div className="searchContainer">
 
          <form className="searchForm"> 
-            <h1>So Where are you off to?</h1>
+            <h1>So Where Are you Off To?</h1>
 
-            <select value={activityValue} onChange={handleChange}>
+            <select className="category-box"value={activityValue} onChange={handleChange}>
            {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.text}
@@ -110,38 +115,46 @@ export function SearchTravel(){
                 
             
          
-      <input className= "searcLocationhInput"   onChange={(e)=> setLocationValue(e.target.value)}/> 
+      <input className= "searcLocationhInput"   onChange={(e)=> setLocationValue(e.target.value)} placeholder="Enter City"/> 
       {/* <input className= "searchInput"  onChange={(e)=> setActivityValue(e.target.value)}/>   */}
       
         <h3>What's In Your Wallet?</h3>
+
   <input type="checkbox" value= "1" onChange={(e)=> setPriceValue(Number(e.target.value))}/> $<br/>
   <input type="checkbox" value= "2" onChange={(e)=> setPriceValue(Number(e.target.value))} /> $$<br/>
   <input type="checkbox"  value= "3"onChange={(e) => setPriceValue(Number(e.target.value))}/> $$$<br/>
   <input type="checkbox"  value= "4"onChange={(e)=> setPriceValue(Number(e.target.value))}/> $$$$<br/>
 
-<button className= "searchButton" onClick={(e)=> onSubmit(e)}>Search</button>
+<button className= "searchButton" onClick={(e)=> onSubmit(e)}><IoSearchOutline />   Search</button>
 
 
 
       </form> 
-       
+       <div className="results-container">
       {results.map((result) => {
       return(
         <div className="SearchList">
-          <p>{result.name}</p>
-          <Link to={`/details/${result.id}`}>View Details</Link>
+          <img className="result-image" src={result.image_url} alt={result.name}></img>
+          <p className="result-name">{result.name}</p>
+          <div className="rating-price">
+            <p><GiRoundStar color="#ffae42" />     {result.rating}</p>
+            <p className="result-price">Price: {result.price}</p>
+          </div>
+          <div className="details-add-button">
+          <Link to={`/details/${result.id}`}><button className="view-details">View Details</button></Link>
           <br />
           {check(result.id) ? ( // call the check function and pass the place id (business id) and if it's already inside of our list array, this will become true and it will be removed. If it is not, it means it is false, and it will be added to the list array. This prevents it from adding multiple places into their list.
           
-              <button onClick={() => (removeFromList(result, result.id), deleteFromFavorites(result))}>Remove From List</button>
+              <button className="remove-button" onClick={() => (removeFromList(result, result.id), deleteFromFavorites(result))}><TiMinus size={10}/>     Remove</button>
             ) : (
-              <button onClick={() => (addToList(result), postToFavorites(result))}>Add To List</button>
+              <button className="add-button" onClick={() => (addToList(result), postToFavorites(result))}><RiAddFill size={13}/>     Add</button>
 
           )}
         </div>
+        </div>
       ) 
       })}
-
+    </div>
  
       </div>  
     );
@@ -149,4 +162,3 @@ export function SearchTravel(){
 }
 
 export default SearchTravel
-

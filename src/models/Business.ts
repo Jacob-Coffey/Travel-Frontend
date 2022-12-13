@@ -15,7 +15,7 @@ export interface Business {
     review_count: number;
     name: string;
     url: string;
-    img_url: string;
+    image_url: string;
     location: string;
     distance: number;
     categories: string;
