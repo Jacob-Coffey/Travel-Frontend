@@ -1,5 +1,12 @@
 .Header {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: white solid 10px;
+}
+
+.everything-else {
+    display: flex;
     justify-content: space-between;
     box-shadow: rgba(192, 193, 196, 0.955) 0px 10px 10px -10px;
     background: rgb(5, 80, 93);
@@ -7,44 +14,29 @@
 }
 
 
-.search-button, .list-button, .sign-in-button, .sign-out-button {
+.search-button, .list-button, .sign-in-button {
     background-color: transparent;
-    color: black;
     border: transparent;
-    cursor: pointer;
-}
-
-.search-button:hover, .list-button:hover, .sign-out-button:hover {
-    translate: scale(1.3);
-    border-radius: 2px;
-    border: #ffae42 solid 1px;
-}
-
-.search-button:active, .list-button:active, .sign-in-button:active {
-    transform: scale(1);
 }
 
 .sign-in {
     display: flex;
-    margin-top: 18px;
-    margin-right: 50px;
+    margin-top: 26px;
+    margin-right: 35px;
+}
+
+.sign-out-button {
+    background-color: transparent;
+    border: transparent;
+    margin-right: 45px;
 }
 
 .sign-in-button {
     padding: 0;
-    margin-right: 10px;
-}
-
-.sign-in-button:hover {
-    padding: 8px;
-    border-radius: 2px;
-    border: #ffae42 solid 1px;
-    margin: 0;
 }
 
 .sign-in-text {
-    color: white;
-    font-size: 13px;
+    display: none;
 }
 
 .list-button {
@@ -62,20 +54,16 @@
 }
 
 .search-text, .list-text, .sign-out-text {
-    font-size: 10px;
-    color: white;
-    margin-top: 10px;
+    display: none;
 }
 
-.bleh {
+.sign-in-box {
     display: flex;
     flex-direction: column;
 }
 
 .sign-out-text {
-    font-size: 10px;
-    color: white;
-    margin-right: 27px;
+    display: none;
 }
 
 .sign-out-button {
@@ -87,6 +75,7 @@
     margin-top: 27px;
     margin-right: 15px;
     color: white;
+    font-size: 15px;
 }
 
 .welcome-container {
@@ -94,11 +83,177 @@
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     padding-left: 0px;
 }
 
 .nav-btns {
     display: flex;
 }
+
+.each-slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+  
+.each-slide>div img {
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+}
+  
+.third-hotel, .first-restaurant, .first-shop, .second-bar {
+    /* width: 480px; */
+    width: 100%;
+    height: 250px;
+}
+
+.first-hotel, .second-hotel, .second-restaurant, .third-restaurant, .first-club, .third-bar, .second-shop, .third-museum {
+    display: none;
+}
+
+  
+  @media screen and (min-width: 768px ) {
+
+    .Header {
+        width: 100%;
+    }
+
+    .main-photo {
+        border-right: white solid 10px;
+        width: 500px;
+        height: 300px;
+      }
+
+    .sign-in {
+        display: flex;
+        margin-top: 18px;
+        margin-right: 25px;
+    }
+
+    .sign-in-text {
+        display: flex;
+        color: white;
+        font-size: 13px;
+    }
+
+    .sign-in-button {
+        margin-right: 0px;
+        margin-top: 2px;
+    }
+
+    .search-button, .list-button, .sign-in-button, .sign-out-button {
+        background-color: transparent;
+        color: black;
+        border: transparent;
+        cursor: pointer;
+    }
+
+    .sign-out-text {
+        font-size: 10px;
+        color: white;
+        margin-right: 27px;
+    }
+
+    .welcome-text {
+        font-size: 18px;
+    }
+
+    .third-hotel, .first-restaurant, .first-shop, .second-bar {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .first-hotel, .second-hotel, .second-restaurant, .third-restaurant, .first-club, .third-bar, .second-shop, .third-museum {
+        display: flex;
+        width: 100%;
+        height: 200px;
+    }
+
+    .first-restaurant, .first-shop, .second-bar, .first-hotel, .second-hotel, .second-restaurant, .first-club, .second-shop {
+        border-right: white solid 5px;
+    }
+
+  } 
+  
+  @media screen and (min-width: 1240px) {
+  
+    .Header {
+        width: 100%;
+    }
+
+    .sign-in {
+        display: flex;
+        margin-top: 18px;
+        margin-right: 25px;
+    }
+
+    .sign-in-button {
+        margin-top: 3px;
+    }
+
+    .sign-in-text {
+        color: white;
+        font-size: 13px;
+    }
+
+    .search-button, .list-button, .sign-in-button, .sign-out-button {
+        background-color: transparent;
+        color: black;
+        border: transparent;
+        cursor: pointer;
+    }
+
+    .search-button:hover, .list-button:hover, .sign-out-button:hover {
+        translate: scale(1.3);
+        border-radius: 2px;
+        border: #ffae42 solid 1px;
+    }
+
+    .search-button:active, .list-button:active, .sign-in-button:active {
+        transform: scale(1);
+    }
+
+    .sign-in-button:hover {
+        padding: 8px;
+        border-radius: 2px;
+        border: #ffae42 solid 1px;
+        margin: 0;
+    }
+
+    .sign-out-text {
+        font-size: 10px;
+        color: white;
+        margin-right: 27px;
+    }
+
+    .welcome-text {
+        font-size: 18px;
+    }
+
+    .search-text, .list-text, .sign-out-text {
+        font-size: 10px;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .third-hotel, .first-restaurant, .first-shop, .second-bar {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .first-hotel, .second-hotel, .second-restaurant, .third-restaurant, .first-club, .third-bar, .second-shop, .third-museum {
+        display: flex;
+        width: 100%;
+        height: 300px;
+    }
+
+    .first-restaurant, .first-shop, .second-bar, .first-hotel, .second-hotel, .second-restaurant, .first-club, .second-shop {
+        border-right: white solid 5px;
+    }
+
+  
+  }

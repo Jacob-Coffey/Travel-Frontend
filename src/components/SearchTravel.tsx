@@ -1,20 +1,20 @@
 import React from "react";
 import { useContext, useEffect, useState } from "react";
-import { getHotels, getNightlife, getResturants, getBeautySpas, getShopping } from "../services/YelpApi";
+import { getHotels, getNightlife, getResturants, getBeautySpas, getShopping, getDetails } from "../services/YelpApi";
 import { Business } from "../models/Business";
 import { AddListContext } from "../context/AddListContext";
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { deleteFromFavorites, postToFavorites } from "../services/DbApi";
 import "./SearchTravel.css"
 import { RiAddFill } from 'react-icons/ri'
 import { TiMinus } from 'react-icons/ti'
 import { GiRoundStar } from 'react-icons/gi'
 import { IoSearchOutline } from 'react-icons/io5'
+import { BusinessInfo } from "../models/Details";
 
 
 
 export function SearchTravel(){
-
 
   const options = [
     {value: '', text: '--Choose an option--'},
@@ -33,17 +33,27 @@ export function SearchTravel(){
   //const [selected, setSelected] = useState(options[0].value);
   const [activityValue, setActivityValue] = useState(options[0].value);
   const [results, setResults] = useState<Business[]>([])
+  const [business, setBusiness] = useState<BusinessInfo>();
+
+  const id: string = String(useParams().id);
+
+  useEffect(() => {
+    getDetails(id).then(res => {
+        setBusiness(res.data)
+    })
+
+}, [id]);
 
   const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
     console.log(event.target.value);
     setActivityValue(event.target.value);
   };
   
-  const { lists, addToList, removeFromList } = useContext(AddListContext) //extracting these methods
+  const { lists, addToList, removeFromList } = useContext(AddListContext) 
 
 
-  const check = (id: string) => { //create a method for the add to list button to change to remove from list and vice versa
-    const boolean = lists.some((business) => business.id === id); //the some method checks whether at least one element inside of the array meets a condition. if the business id === to the id, it will return either false or true (teeter totters depending on the conditional statement shown below when function is called)
+  const check = (id: string) => { 
+    const boolean = lists.some((business) => business.id === id); 
     return boolean
   }
 
@@ -103,7 +113,7 @@ export function SearchTravel(){
       <div className="searchContainer">
 
          <form className="searchForm"> 
-            <h1>So Where Are you Off To?</h1>
+            <h2>So Where Are you Off To?</h2>
 
             <select className="category-box"value={activityValue} onChange={handleChange}>
            {options.map(option => (
@@ -143,7 +153,7 @@ export function SearchTravel(){
           <div className="details-add-button">
           <Link to={`/details/${result.id}`}><button className="view-details">View Details</button></Link>
           <br />
-          {check(result.id) ? ( // call the check function and pass the place id (business id) and if it's already inside of our list array, this will become true and it will be removed. If it is not, it means it is false, and it will be added to the list array. This prevents it from adding multiple places into their list.
+          {check(result.id) ? ( 
           
               <button className="remove-button" onClick={() => (removeFromList(result, result.id), deleteFromFavorites(result))}><TiMinus size={10}/>     Remove</button>
             ) : (
