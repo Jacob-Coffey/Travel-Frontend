@@ -1,44 +1,59 @@
-.main-photo-container {
-    display: none;
-  }
-  
-
 .AddList {
     border: transparent;
     border-radius: 7px;
     width: 330px;
     height: 375px;
-    margin: 20px;
     overflow: hidden;
     box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-    background-color: rgb(5, 80, 93);
+    background-color: #ece6e1;
     font-family: 'Manrope', sans-serif;
+    margin: 10px;
 }
 
 .list-container {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
-    margin-left: 205px;
-    color: white;
+    color: rgb(5, 80, 93);
+    margin-left: 25px;
 }
 
+.budget {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    border: white solid 1px;
+    border-radius: 5px;
+    height: 100px;
+    color:white;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color:rgb(5, 80, 93);
+    font-size: 18px;
+}
+
+.budget-text {
+    padding-top: 20px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.number-text {
+    text-decoration: none;
+    margin-top: 10px;
+    color:#ffae42;
+}
 
 .list-remove-button, .list-view-details {
-    background-color: rgb(5, 80, 93);
-    color: #ffae42;
-    border: #ffae42 solid 1px;
+    background-color: transparent;
+    color:rgb(5, 80, 93);
+    border: white solid 1px;
     border-radius: 5px;
     padding: 6px 20px 6px 15px;
     font-weight: bold;
     font-family: 'Unbounded', cursive;
     font-size: 12px;
-}
-
-.list-remove-button:hover {
-    cursor: pointer;
-    background-color: #ffae42;
-    color: rgb(5, 80, 93);
 }
 
 .list-image {
@@ -51,8 +66,9 @@
 
 .list-view-details:hover {
     cursor: pointer;
-    background-color: white;
-    color: rgb(5, 80, 93);
+    background-color: rgb(5, 80, 93);
+    color: #ffae42;
+    border: transparent;
 }
 
 .list-details-add-button {
@@ -77,18 +93,61 @@
     margin-bottom: 0px;
     padding-top: 7px;
     font-weight: bold;
-    color: white;
+    z-index: 1;
 }
 
 .list-price {
     font-weight:bold
 }
 
-.budget {
-    color:rgb(5, 80, 93);
+.add-list-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .budget-addlist-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.empty-list{
+    font-size: 25px;
+    padding-top: 25px;
+}
+
+@media screen and (min-width: 768px ) {
+
+    .budget {
+        margin-left: 25px;
+        font-size: 18px;
+    }
+
+    .list-container {
+        justify-content: center;
+    }
+
+    .empty-list{
+        font-size: 30px;
+        padding-right: 20px;
+    }
+
+}
+
+@media screen and (min-width: 1240px ) {
+
+    .list-container {
+        justify-content: center;
+    }
+
+    .empty-list{
+        font-size: 35px;
+        padding-right: 55px;
+    }
+
+    .budget {
+        font-size: 25px;
+        padding: 15px;
+    }
+
 }
