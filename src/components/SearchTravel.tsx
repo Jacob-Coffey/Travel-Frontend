@@ -22,7 +22,7 @@ export function SearchTravel(){
     {value: 'Restaurant', text: 'Restaurants'},
     {value: 'Nightlife', text: 'Night Life'},
     {value: 'Beauty & Spas', text: 'Beauty & Spas'},
-    {value: 'Shopping', text: 'Places to Shop'},
+    {value: 'Shopping', text: 'Shopping'},
 
   ]
 
