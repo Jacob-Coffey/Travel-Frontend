@@ -98,7 +98,7 @@ const Header = () => {
 
       <div className="everything-else">
       <div className="logo-container">
-        <img className="logo" src={logoImg} alt="logo"></img>
+        <Link to="/"><img className="logo" src={logoImg} alt="logo"></img> </Link>
       </div>
 
         <div className="nav-btns">
