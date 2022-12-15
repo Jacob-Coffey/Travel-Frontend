@@ -6,21 +6,10 @@ import { getDetails, getReviews } from "../services/YelpApi";
 import "./DetailPage.css"
 import { GiRoundStar } from 'react-icons/gi'
 import { AddListContext } from "../context/AddListContext";
-import { deleteFromFavorites, postToFavorites } from "../services/DbApi";
-import { RiAddFill } from 'react-icons/ri'
-import { TiMinus } from 'react-icons/ti'
-import { BsThreeDots } from 'react-icons/bs'
 
 export const DetailPage = () => {
 const [business, setBusiness] = useState<BusinessInfo>();
 const [reviews, setReviews] = useState<Reviews>();
-const { lists, addToList, removeFromList } = useContext(AddListContext) 
-
-
-  const check = (id: string) => { 
-    const boolean = lists.some((business) => business.id === id); 
-    return boolean
-  }
 
 
 const id: string = String(useParams().id); //get id from URL
@@ -55,20 +44,19 @@ return (
             
         <div className="info-container">
             <div className="info-text">
-            {/* <div className="detail-rating"><GiRoundStar color="#ffae42" />     {business?.rating}   from   <div>{reviews?.total}   reviews</div></div> */}
-            <div className="price-container"><div className="detail-price">Price:</div><div className="price">{business?.price}</div></div>
-            <div className="address-container"><div className="detail-address">Address:</div><div className="address">{business?.location.display_address}</div></div>
-            <div className="phone-container"><div className="detail-phone">Phone: </div><div className="phone">{business?.display_phone}</div></div>
-            {/* <h4>Hours: {business?.hours && business.hours.map((hour) => (
-                <div>{hour.open && hour.open.slice(0, 7).map((open) => (
-                    <div>
-                        <p>{open.day}</p>
-                        <p>{open.start}</p>
-                        <p>{open.end}</p>
-                    </div>
-                ))}</div> 
-            ))}</h4> */}
-            <h4 className="website"><a href={business?.url} target="_blank">Website</a></h4>
+                <div className="price-container">
+                    <ul className="detail-price">Price:</ul>
+                    <div className="price">{business?.price}</div>
+                </div>
+                <div className="address-container">
+                    <div className="detail-address">Address:</div>
+                    <div className="address">{business?.location.display_address}</div>
+                </div>
+                <div className="phone-container">
+                    <div className="detail-phone">Phone: </div>
+                    <div className="phone">{business?.display_phone}</div>
+                </div>
+                <h4 className="website"><a href={business?.url} target="_blank">Business Website & Hours Located Here</a></h4>
             </div>
         
             <div className="review-container">
