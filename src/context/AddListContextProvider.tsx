@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { Business } from "../models/Business";
+import { Business, Category } from "../models/Business";
 import { AddListContext } from "./AddListContext";
 
 
@@ -22,21 +22,26 @@ export default function AddListContextProvider ({ children }: Props) {
         const newList = oldList.concat(newAdd); //the new list will add both the old list and the new add (concat combines two or more arrays)
 
         setLists(newList); 
-        if(newAdd.categories === "hotels"){
-            setCount((10 * newAdd.price.length) + count) 
+        let category = ""
+        for (let x of newAdd.categories){
+            if (x.alias === "hotels"){
+                category = "hotels"
+            }
+            if (x.alias === "food"){
+                category = "food"
+            }
         }
-        if(newAdd.categories === "food"){
-        setCount(count + newAdd.price.length)
+
+
+
+        if(category === "hotels"){
+            setCount(count + (newAdd.price.length * 10));
         }
-        if(newAdd.categories === "nightlife"){
-            setCount((2 * newAdd.price.length) + count)
+
+        else{
+            setCount(count + newAdd.price.length);
         }
-        if(newAdd.categories === "beautysvc"){
-            setCount((5 * newAdd.price.length) + count)
-        }
-        if(newAdd.categories === "shopping"){
-            setCount((5 * newAdd.price.length) + count)
-        }
+    
 
     };
 
@@ -47,7 +52,26 @@ export default function AddListContextProvider ({ children }: Props) {
 
         setLists(newList); //new list without the business that was removed.
 
-        setCount(count - removedPlace.price.length)
+        let category = ""
+        for (let x of removedPlace.categories){
+            if (x.alias === "hotels"){
+                category = "hotels"
+            }
+            if (x.alias === "food"){
+                category = "food"
+            }
+        }
+
+        if(category === "hotels"){
+            setCount(count - (removedPlace.price.length * 10));
+        }
+
+        else{
+            setCount(count - removedPlace.price.length);
+        }
+    
+
+      
     };
 
     return (

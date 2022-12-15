@@ -18,5 +18,10 @@ export interface Business {
     image_url: string;
     location: string;
     distance: number;
-    categories: string;
+    categories: Category[];
+}
+
+export interface Category {
+    alias: string;
+    title: string
 }
