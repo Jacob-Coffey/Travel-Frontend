@@ -201,12 +201,12 @@ a:active {
 @media screen and (min-width: 1240px) {
 
     .category {
-        width: 200px;
+        width: 175px;
         font-size: 15px;
     }
 
     .detail-name {
-        font-size: 45px;
+        font-size: 50px;
     }
 
     .detail-rating {
@@ -214,7 +214,7 @@ a:active {
     }
 
     .info-text {
-        font-size: 18px;
+        font-size: 15px;
         width: 500px;
     }
 
@@ -233,7 +233,7 @@ a:active {
     }
 
     .detail-photo {
-        height: 250px;
+        height: 300px;
     }
 
     .reviews {
